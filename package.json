@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/altieripereira/youtube-robot/issues"
   },
-  "homepage": "https://github.com/altieripereira/youtube-robot#readme"
+  "homepage": "https://github.com/altieripereira/youtube-robot#readme",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
 }
