@@ -10,14 +10,19 @@ const NaturalLanguageUnderstandingV1 = require('watson-developer-cloud/natural-l
   url: 'https://gateway.watsonplatform.net/natural-language-understanding/api/'
 })
 
-async function robot(content) {
+const state = require('./state.js')
+
+async function robot() {
+
+    const content = state.load()
 
     await fetchContentFromWikipedia(content)
     sanitizeContent(content)
     breakContentIntoSentences(content)
     limitMaximumSentences(content)
-
     await fetchKeywordsOfAllSentences(content)
+
+    state.save(content)
 
     async function fetchContentFromWikipedia(content) {
 
